@@ -5,7 +5,7 @@ A backend system for managing patients, dentists, and appointments — built wit
 This project models a real dental clinic workflow, including patient records, dentist profiles, and appointment scheduling.
 It’s structured for scalability, clarity, and future expansion.
 
-# 🗂️ Project Diagrams
+# Project Diagrams
 Entity Relationship Diagram (ERD)
 Defines the core data structure of the system.
 
