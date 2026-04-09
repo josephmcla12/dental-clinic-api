@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from app.routers import patients
+from app.routers import dentists, patients
 from app.database import engine, Base
-from app.models import patient  # <-- THIS is the missing piece
+from app.models import patient, dentist 
 
 app = FastAPI()
 
@@ -9,7 +9,7 @@ app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
 app.include_router(patients.router)
-
+app.include_router(dentists.router) 
 @app.get("/")
 def root():
     return {"message": "Dental Clinic API is running!"}
