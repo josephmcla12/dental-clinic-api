@@ -5,3 +5,4 @@ class PatientCreate(BaseModel):
     age: int
     email: str
     phone_number: str
+
