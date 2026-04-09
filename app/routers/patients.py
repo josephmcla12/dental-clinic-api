@@ -48,3 +48,12 @@ def update_patient(patient_id: int, updated_data: PatientUpdate, db: Session = D
     db.refresh(patient)
     return patient
 
+@router.delete("/{patient_id}")
+def delete_patient(patient_id: int, db: Session = Depends(get_db)):
+    patient = db.query(Patient).filter(Patient.id == patient_id).first()
+    if not patient:
+        return {"error": f"Patient with id {patient_id} not found"}
+    
+    db.delete(patient)
+    db.commit()
+    return {"message": f"Patient with id {patient_id} has been deleted"}
