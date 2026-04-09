@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.patient import Patient
-from app.schemas.patient import PatientCreate
+from app.schemas.patient import PatientCreate, PatientUpdate
 
 router = APIRouter(
     prefix="/patients",
@@ -32,3 +32,19 @@ def get_patient(patient_id: int, db: Session = Depends(get_db)):
     if not patient:
         return {"error": f"Patient with id {patient_id} not found"}
     return patient
+
+@router.put("/{patient_id}")
+def update_patient(patient_id: int, updated_data: PatientUpdate, db: Session = Depends(get_db)):
+    patient = db.query(Patient).filter(Patient.id == patient_id).first()
+    if not patient:
+        return {"error": f"Patient with id {patient_id} not found"}
+    
+    patient.name = updated_data.name
+    patient.age = updated_data.age
+    patient.email = updated_data.email
+    patient.phone_number = updated_data.phone_number
+    
+    db.commit()
+    db.refresh(patient)
+    return patient
+
