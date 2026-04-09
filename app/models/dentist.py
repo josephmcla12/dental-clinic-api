@@ -11,4 +11,5 @@ class Dentist(Base):
     specialization = Column(String)
     email = Column(String, unique=True, index=True)
     phone_number = Column(String, unique=True, index=True)
-    relationships = relationship("Appointment", back_populates="dentist")
+    appointments = relationship("Appointment", back_populates="dentist")
+
