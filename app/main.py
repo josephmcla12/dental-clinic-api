@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import dentists, patients, appointments
+from app.routers import dentists, patients, appointments, stats
 from app.database import engine, Base
 from app.models import patient, dentist, appointment
 
@@ -11,6 +11,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(patients.router)
 app.include_router(dentists.router)
 app.include_router(appointments.router)
+app.include_router(stats.router)
 
 @app.get("/")
 def root():
