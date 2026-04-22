@@ -1,19 +1,28 @@
 # Dental Clinic API
-A backend system for managing patients, dentists, and appointments — built with FastAPI and designed using clear, intentional architecture and planning diagrams.
+A backend system for managing patients, dentists, and appointments — built with FastAPI and structured using clean, scalable architecture. This project models a real clinic workflow and demonstrates practical backend engineering skills, including routing, data modelling, and API design.
 
 # Overview
-This project models a real dental clinic workflow, including patient records, dentist profiles, and appointment scheduling.
-It’s structured for scalability, clarity, and future expansion.
+This API simulates the core operations of a dental clinic:
 
-# Project Diagrams
+Managing patient records
+
+Managing dentist profiles
+
+Scheduling and tracking appointments
+
+Providing analytics endpoints for clinic insights
+
+The project is designed with clarity, modularity, and future expansion in mind.
+
+# System Design & Planning
 Entity Relationship Diagram (ERD)
-Defines the core data structure of the system.
+Defines the relationships between Patients, Dentists, and Appointments.
 
-System Architecture
-Shows how the user, backend, database, and future services interact.
+System Architecture Diagram
+Shows how the client, API, database, and future services interact.
 
 API Endpoint Map
-Outlines all REST endpoints for patients, dentists, and appointments.
+A visual overview of all REST endpoints and how they connect across the system.
 
 # Tech Stack
 FastAPI
@@ -22,25 +31,43 @@ Python 3.10+
 
 Uvicorn
 
-draw.io (for planning)
+SQLAlchemy
+
+SQLite (development database)
+
+draw.io (planning & diagrams)
 
 # Current Endpoints
-GET / — API status
+Root
+GET / — API status check
 
-CRUD endpoints for Patients, Dentists, Appointments
+Patients
+Full CRUD operations
+
+Dentists
+Full CRUD operations
+
+Appointments
+Full CRUD operations
+
+Relationship‑aware scheduling
+
+Analytics endpoints (e.g., appointments per day, dentist workload)
 
 # Planned Features
-Database integration (PostgreSQL or MongoDB)
+Upgrade to PostgreSQL for production
 
-Authentication (JWT)
+JWT authentication
 
-Admin/staff roles
+Role‑based access
 
 Billing & treatment records
 
 # Project Goals
-Build a clean, well‑structured backend
+Build a clean, well‑structured backend system
 
-Practice real API design
+Practice real API design and architecture
 
-Create a professional portfolio project
+Create a professional portfolio project suitable for my CV
+
+Demonstrate understanding of models, routers, schemas, and relationships
